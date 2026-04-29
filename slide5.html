@@ -17,6 +17,11 @@
     .screen-5-inner { max-width:960px;width:100%;text-align:center; }
     .screen-5-badge { display:inline-block;background:rgba(1,169,130,.12);border:1px solid rgba(1,169,130,.4);color:var(--accent);font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:6px 18px;border-radius:20px;margin-bottom:20px; }
     .screen-5-headline { font-size:clamp(2.2rem,5vw,3.8rem);font-weight:900;letter-spacing:-.03em;margin-bottom:52px;color:var(--text); }
+    .screen-5-arch-video { display:block;max-width:860px;width:95%;margin:0 auto 48px;border-radius:16px;overflow:hidden; }
+    .screen-5-arch-video video { width:100%;display:block;border-radius:16px; }
+    @keyframes fadeIn { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+    .arch-content { display:none; }
+    .arch-content.visible { display:block;animation:fadeIn .8s cubic-bezier(.22,1,.36,1) both; }
     .screen-5-arch-img { display:block;max-width:860px;width:95%;margin:0 auto 48px;object-fit:contain;border-radius:16px; }
     .screen-5-flow { display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px; }
     .flow-step { display:flex;align-items:center;gap:14px;background:rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:18px 26px;font-size:1.15rem;color:var(--muted); }
@@ -40,16 +45,23 @@
   <section class="screen-5">
     <div class="screen-5-inner">
       <div class="screen-5-badge">⚙ Under the Hood</div>
-      <h2 class="screen-5-headline">Architecture</h2>
-      <img src="images/arch.png" alt="Architecture" class="screen-5-arch-img" />
-      <div class="screen-5-flow">
-        <div class="flow-step"><span>1</span>Scrum Master asks Copilot to plan the sprint</div>
-        <div class="flow-arrow">→</div>
-        <div class="flow-step"><span>2</span>Agent calls MCP tools for real data</div>
-        <div class="flow-arrow">→</div>
-        <div class="flow-step"><span>3</span>Capacity calculated from velocity + availability</div>
-        <div class="flow-arrow">→</div>
-        <div class="flow-step"><span>4</span>Sprint plan returned with risks &amp; rationale</div>
+      <div class="screen-5-arch-video" id="videoWrap">
+        <video id="archVid" autoplay muted playsinline>
+          <source src="images/arch2.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="arch-content" id="archContent">
+        <h2 class="screen-5-headline">Architecture</h2>
+        <img src="images/arch.png" alt="Architecture" class="screen-5-arch-img" />
+        <div class="screen-5-flow">
+          <div class="flow-step"><span>1</span>Scrum Master asks Copilot to plan the sprint</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step"><span>2</span>Agent calls MCP tools for real data</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step"><span>3</span>Capacity calculated from velocity + availability</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step"><span>4</span>Sprint plan returned with risks &amp; rationale</div>
+        </div>
       </div>
     </div>
   </section>
@@ -65,7 +77,13 @@
   </div>
 
   <script>
-    document.addEventListener('click', () => location.href = 'slide6.html');
+    const vid = document.getElementById('archVid');
+    vid.addEventListener('ended', () => {
+      document.getElementById('videoWrap').style.display = 'none';
+      const content = document.getElementById('archContent');
+      content.classList.add('visible');
+    });
+    document.addEventListener('click', e => { if (e.target.closest('video')) return; location.href = 'slide6.html'; });
     document.addEventListener('contextmenu', e => { e.preventDefault(); location.href = 'slide4.html'; });
   </script>
 </body>
