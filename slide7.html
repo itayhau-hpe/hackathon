@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SprintSense — v2.0</title>
+  <style>
+    :root { --green:#01a982;--darker:#091422;--card:#112236;--text:#e8f0f7;--muted:#7fa8c9;--accent:#00d4aa;--warn:#f5a623; }
+    * { box-sizing:border-box;margin:0;padding:0; }
+    body { font-family:'Segoe UI',system-ui,sans-serif;background:var(--darker);color:var(--text);min-height:100vh;cursor:pointer; }
+    @keyframes slideUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+
+    .screen {
+      min-height:100vh;
+      display:flex;align-items:center;justify-content:center;
+      padding:48px 24px;
+      background:linear-gradient(160deg,#07101a 0%,#0b2535 50%,#0d1b2a 100%);
+    }
+
+    .inner {
+      max-width:900px;
+      width:100%;
+    }
+
+    .page-badge {
+      display:inline-block;background:rgba(0,212,170,.1);border:1px solid rgba(0,212,170,.4);
+      color:var(--accent);font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+      padding:6px 18px;border-radius:20px;margin-bottom:20px;
+    }
+
+    .page-headline {
+      font-size:clamp(2rem,5vw,3.2rem);font-weight:900;letter-spacing:-.02em;
+      margin-bottom:8px;color:var(--text);
+    }
+
+    .page-headline span { color:var(--accent); }
+
+    .page-sub {
+      font-size:1.35rem;color:var(--muted);margin-bottom:40px;
+    }
+
+    .items {
+      display:flex;flex-direction:column;gap:16px;
+    }
+
+    .item {
+      display:flex;align-items:flex-start;gap:20px;
+      background:rgba(0,0,0,.28);border:1px solid rgba(1,169,130,.18);border-radius:14px;
+      padding:22px 24px;
+      animation:slideUp .5s ease both;
+      transition:border-color .2s,transform .2s;
+    }
+
+    .item:nth-child(1){animation-delay:.2s}
+    .item:nth-child(2){animation-delay:.35s}
+    .item:nth-child(3){animation-delay:.5s}
+    .item:nth-child(4){animation-delay:.65s}
+
+    .item:hover { border-color:var(--accent);transform:translateX(4px); }
+
+    .item-icon {
+      font-size:1.8rem;flex-shrink:0;margin-top:2px;
+    }
+
+    .item-body { display:flex;flex-direction:column;gap:6px; }
+
+    .item-title {
+      font-size:1rem;font-weight:800;color:var(--text);
+    }
+
+    .item-desc {
+      font-size:.9rem;color:var(--muted);line-height:1.65;
+    }
+
+    .item-desc strong { color:var(--text); }
+
+    .nav-dots { position:fixed;bottom:18px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:100; }
+    .dot { width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.25);transition:background .2s; }
+    .dot.active { background:var(--accent); }
+  </style>
+</head>
+<body>
+  <section class="screen">
+    <div class="inner">
+      <h2 class="page-headline">SprintSense <span>v2.0 - What's next?</span></h2>
+      <p class="page-sub">Planned improvements based on real-world sprint feedback</p>
+      <img src="images/next.png" style="max-width:860px;width:90%;margin-bottom:32px;" alt="v2.0 next steps">
+
+    </div>
+  </section>
+
+  <div class="nav-dots">
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot active"></div>
+  </div>
+
+  <script>
+    document.addEventListener('click', e => e.preventDefault());
+    document.addEventListener('contextmenu', e => { e.preventDefault(); location.href = 'slide6.html'; });
+  </script>
+</body>
+</html>

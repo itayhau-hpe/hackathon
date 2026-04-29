@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SprintSense — 1 / 5</title>
+  <style>
+    :root { --green:#01a982;--dark:#0d1b2a;--darker:#091422;--card:#112236;--text:#e8f0f7;--muted:#7fa8c9;--accent:#00d4aa;--warn:#f5a623; }
+    * { box-sizing:border-box;margin:0;padding:0; }
+    body { font-family:'Segoe UI',system-ui,sans-serif;background:var(--darker);color:var(--text);min-height:100vh;cursor:pointer; }
+    @keyframes popIn { from{opacity:0;transform:scale(.75)} to{opacity:1;transform:scale(1)} }
+    @keyframes slideUp { from{opacity:0;transform:translateY(40px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes bounceDown { 0%,100%{transform:translateY(0);opacity:.5} 50%{transform:translateY(6px);opacity:1} }
+    @keyframes fadeInUp { from{opacity:0;transform:translateX(-50%) translateY(10px)} to{opacity:1;transform:translateX(-50%) translateY(0)} }
+
+    .screen-1 {
+      min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;
+      background:url('images/agile.jpg') center center/cover no-repeat;
+      text-align:center;padding:28px 24px 48px;position:relative;overflow:hidden;
+    }
+    .screen-1::before { content:'';position:absolute;inset:0;background:rgba(7,20,35,0.90);pointer-events:none; }
+    .screen-1::after  { content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,rgba(1,169,130,.1) 0%,transparent 65%);pointer-events:none; }
+    .screen-1-logo { margin-bottom:16px;animation:popIn .6s cubic-bezier(.22,1,.36,1) both;position:relative;z-index:1; }
+    .screen-1-logo img { height:200px;width:auto;object-fit:contain; }
+    .screen-1 h1 { font-size:clamp(1.8rem,4vw,3rem);font-weight:700;letter-spacing:-.01em;line-height:1.12;margin-bottom:24px;color:var(--text);animation:slideUp .7s cubic-bezier(.22,1,.36,1) .2s both;position:relative;z-index:1; }
+    .screen-1 h1 span { color:var(--accent);display:block; }
+    .screen-1-panel { background:rgba(7,20,35,0.72);border:1px solid rgba(1,169,130,.25);border-radius:14px;backdrop-filter:blur(10px);padding:16px 32px 20px;margin-top:8px;display:inline-block; }
+    .screen-1-sub { font-size:1.2rem;color:var(--muted);line-height:1.7;animation:slideUp .7s cubic-bezier(.22,1,.36,1) .4s both;margin-top:8px; }
+    .scroll-hint { position:absolute;bottom:28px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--muted);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;animation:fadeInUp 1s ease 1.2s both;z-index:1; }
+    .scroll-hint svg { animation:bounceDown 1.6s ease-in-out infinite; }
+
+    /* nav dots */
+    .nav-dots { position:fixed;bottom:18px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:100; }
+    .dot { width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.25);transition:background .2s; }
+    .dot.active { background:var(--accent); }
+    .hero-row { display:flex;align-items:center;justify-content:center;gap:36px;position:relative;z-index:1;width:100%;max-width:1100px; }
+    .hero-left { display:flex;flex-direction:column;align-items:center;gap:16px;flex-shrink:0; }
+    .hero-video { width:220px;border-radius:12px;overflow:hidden;box-shadow:0 0 30px rgba(0,212,170,.2); }
+    .hero-video video { width:100%;display:block;border-radius:12px; }
+    .hero-text { text-align:left;margin-top:48px; }
+  </style>
+</head>
+<body>
+  <section class="screen-1">
+    <div class="hero-row">
+      <div class="hero-left">
+        <div class="screen-1-logo">
+          <img src="images/logo_sprintsense4.png" alt="SprintSense" />
+        </div>
+        <div class="hero-video">
+          <video autoplay loop muted playsinline>
+            <source src="images/boost_clean.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="hero-text">
+        <h1>AI Boost for<br/><div class="screen-1-panel"><span>High-Performance Sprints</span>
+        <p class="screen-1-sub">Replace uncertainty with precision<br>Deliver more value, every sprint</p></div></h1>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      Click to continue
+    </div>
+  </section>
+
+  <div class="nav-dots">
+    <div class="dot active"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+
+  <script>
+    document.addEventListener('click', e => { if (e.target.closest('video')) return; location.href = 'slide2.html'; });
+    document.addEventListener('contextmenu', e => e.preventDefault());
+  </script>
+</body>
+</html>

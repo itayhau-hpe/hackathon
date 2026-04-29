@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SprintSense — 6 / 6</title>
+  <style>
+    :root { --green:#01a982;--darker:#091422;--text:#e8f0f7;--muted:#7fa8c9;--accent:#00d4aa;--warn:#f5a623; }
+    * { box-sizing:border-box;margin:0;padding:0; }
+    body { font-family:'Segoe UI',system-ui,sans-serif;background:#000;color:var(--text);min-height:100vh;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center; }
+
+    .slide-title {
+      font-size:clamp(1.4rem,3vw,2.2rem);
+      font-weight:800;
+      letter-spacing:-.01em;
+      color:var(--accent);
+      margin-bottom:20px;
+      text-align:center;
+    }
+
+    .video-wrap {
+      width:100%;
+      max-width:1100px;
+      padding:0 16px;
+    }
+
+    video {
+      width:100%;
+      border-radius:12px;
+      outline:none;
+      box-shadow:0 0 60px rgba(0,212,170,.15);
+    }
+
+    .nav-dots { position:fixed;bottom:18px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:100; }
+    .dot { width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.25);transition:background .2s; }
+    .dot.active { background:var(--accent); }
+  </style>
+</head>
+<body>
+  <p class="slide-title">SprintSense — Live Demo</p>
+  <div class="video-wrap">
+    <video controls autoplay loop id="vid">
+      <source src="images/reg.mp4" type="video/mp4" />
+    </video>
+  </div>
+
+  <div class="nav-dots">
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot active"></div>
+    <div class="dot"></div>
+  </div>
+
+  <script>
+    // left click only navigates if not clicking the video controls
+    document.addEventListener('click', e => {
+      if (e.target.closest('video')) return;
+      location.href = 'slide7.html';
+    });
+    document.addEventListener('contextmenu', e => { e.preventDefault(); location.href = 'slide5.html'; });
+  </script>
+</body>
+</html>

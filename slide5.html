@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SprintSense — 5 / 5</title>
+  <style>
+    :root { --green:#01a982;--dark:#0d1b2a;--darker:#091422;--card:#112236;--text:#e8f0f7;--muted:#7fa8c9;--accent:#00d4aa;--warn:#f5a623; }
+    * { box-sizing:border-box;margin:0;padding:0; }
+    body { font-family:'Segoe UI',system-ui,sans-serif;background:var(--darker);color:var(--text);min-height:100vh;cursor:pointer; }
+    @keyframes arrowBlink { 0%,100%{opacity:.3} 50%{opacity:.9} }
+
+    .screen-5 {
+      min-height:100vh;background:linear-gradient(160deg,#07101a 0%,#0a2030 55%,#0d1b2a 100%);
+      display:flex;align-items:flex-start;justify-content:center;padding:24px 24px 40px;
+    }
+    .screen-5-inner { max-width:960px;width:100%;text-align:center; }
+    .screen-5-badge { display:inline-block;background:rgba(1,169,130,.12);border:1px solid rgba(1,169,130,.4);color:var(--accent);font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:6px 18px;border-radius:20px;margin-bottom:20px; }
+    .screen-5-headline { font-size:clamp(2.2rem,5vw,3.8rem);font-weight:900;letter-spacing:-.03em;margin-bottom:52px;color:var(--text); }
+    .screen-5-arch-img { display:block;max-width:860px;width:95%;margin:0 auto 48px;object-fit:contain;border-radius:16px; }
+    .screen-5-flow { display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px; }
+    .flow-step { display:flex;align-items:center;gap:10px;background:rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:12px 18px;font-size:.88rem;color:var(--muted); }
+    .flow-step span { display:flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--green);color:#fff;font-size:.75rem;font-weight:800;flex-shrink:0; }
+    .flow-arrow { color:rgba(1,169,130,.4);font-size:1.2rem; }
+
+    /* quote */
+    .quote-banner { background:linear-gradient(135deg,#0d3b2e 0%,#0a2540 100%);border-top:1px solid rgba(1,169,130,.2);border-bottom:1px solid rgba(1,169,130,.2);padding:56px 24px;text-align:center; }
+    .quote-banner blockquote { max-width:800px;margin:0 auto;font-size:clamp(1.15rem,2.5vw,1.45rem);font-style:italic;line-height:1.7;color:var(--text); }
+    .quote-banner blockquote strong { color:var(--accent);font-style:normal; }
+    .quote-banner cite { display:block;margin-top:20px;font-size:.85rem;color:var(--muted);font-style:normal;letter-spacing:.05em;text-transform:uppercase; }
+    footer { text-align:center;padding:40px 24px;color:var(--muted);font-size:.82rem;border-top:1px solid rgba(255,255,255,.06); }
+    footer strong { color:var(--accent); }
+
+    .nav-dots { position:fixed;bottom:18px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:100; }
+    .dot { width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.25);transition:background .2s; }
+    .dot.active { background:var(--accent); }
+  </style>
+</head>
+<body>
+  <section class="screen-5">
+    <div class="screen-5-inner">
+      <div class="screen-5-badge">⚙ Under the Hood</div>
+      <h2 class="screen-5-headline">Architecture</h2>
+      <img src="images/arch.png" alt="Architecture" class="screen-5-arch-img" />
+      <div class="screen-5-flow">
+        <div class="flow-step"><span>1</span>Scrum Master asks Copilot to plan the sprint</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step"><span>2</span>Agent calls MCP tools for real data</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step"><span>3</span>Capacity calculated from velocity + availability</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step"><span>4</span>Sprint plan returned with risks &amp; rationale</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="nav-dots">
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot active"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+
+  <script>
+    document.addEventListener('click', () => location.href = 'slide6.html');
+    document.addEventListener('contextmenu', e => { e.preventDefault(); location.href = 'slide4.html'; });
+  </script>
+</body>
+</html>

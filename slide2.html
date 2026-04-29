@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SprintSense — 2 / 5</title>
+  <style>
+    :root { --green:#01a982;--dark:#0d1b2a;--darker:#091422;--card:#112236;--text:#e8f0f7;--muted:#7fa8c9;--accent:#00d4aa;--warn:#f5a623; }
+    * { box-sizing:border-box;margin:0;padding:0; }
+    body { font-family:'Segoe UI',system-ui,sans-serif;background:var(--darker);color:var(--text);min-height:100vh;cursor:pointer; }
+    @keyframes popIn { from{opacity:0;transform:scale(.75)} to{opacity:1;transform:scale(1)} }
+
+    .screen-2 {
+      min-height:100vh;background:linear-gradient(170deg,#091e2e 0%,#0a2540 100%);
+      padding:64px 24px 52px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    }
+    .screen-2-headline { font-size:clamp(2.5rem,6vw,4.5rem);font-weight:900;letter-spacing:-.03em;color:var(--text);margin-bottom:48px; }
+    .gains-grid { display:grid;grid-template-columns:repeat(2,1fr);gap:14px;max-width:1000px;width:100%;margin:0 auto;padding:0 8px; }
+    @media(max-width:640px){.gains-grid{grid-template-columns:1fr}}
+    .gain-card { background:rgba(0,0,0,.28);border:1px solid rgba(1,169,130,.25);border-radius:14px;padding:10px;animation:popIn .5s cubic-bezier(.22,1,.36,1) both;transition:border-color .2s,transform .2s;display:flex;align-items:center;justify-content:center; }
+    .gain-card:nth-child(1){animation-delay:.3s} .gain-card:nth-child(2){animation-delay:.5s} .gain-card:nth-child(3){animation-delay:.7s} .gain-card:nth-child(4){animation-delay:.9s}
+    .gain-card:hover { border-color:var(--accent);transform:translateY(-3px); }
+    .gain-card img { width:100%;height:auto;object-fit:contain;border-radius:8px; }
+
+    .nav-dots { position:fixed;bottom:18px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:100; }
+    .dot { width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.25);transition:background .2s; }
+    .dot.active { background:var(--accent); }
+  </style>
+</head>
+<body>
+  <section class="screen-2">
+    <div class="gains-grid">
+      <div class="gain-card"><img src="images/gain_1.png" alt="Gain 1" /></div>
+      <div class="gain-card"><img src="images/gain_2.png" alt="Gain 2" /></div>
+      <div class="gain-card"><img src="images/gain_3.png" alt="Gain 3" /></div>
+      <div class="gain-card"><img src="images/gain_4.png" alt="Gain 4" /></div>
+    </div>
+  </section>
+
+  <div class="nav-dots">
+    <div class="dot"></div>
+    <div class="dot active"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+
+  <script>
+    document.addEventListener('click', () => location.href = 'slide3.html');
+    document.addEventListener('contextmenu', e => { e.preventDefault(); location.href = 'slide1.html'; });
+  </script>
+</body>
+</html>

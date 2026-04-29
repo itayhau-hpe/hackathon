@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SprintSense — 3 / 5</title>
+  <style>
+    :root { --green:#01a982;--dark:#0d1b2a;--darker:#091422;--card:#112236;--text:#e8f0f7;--muted:#7fa8c9;--accent:#00d4aa;--warn:#f5a623; }
+    * { box-sizing:border-box;margin:0;padding:0; }
+    body { font-family:'Segoe UI',system-ui,sans-serif;background:var(--darker);color:var(--text);min-height:100vh;cursor:pointer; }
+    @keyframes slideUp { from{opacity:0;transform:translateY(40px)} to{opacity:1;transform:translateY(0)} }
+
+    .screen-3 {
+      min-height:100vh;background:url('images/agile.jpg') center center/cover no-repeat;
+      position:relative;display:flex;align-items:flex-start;justify-content:center;padding:28px 24px 40px;
+    }
+    .screen-3::before { content:'';position:absolute;inset:0;background:rgba(7,20,35,0.88);pointer-events:none; }
+    .screen-3-inner { position:relative;max-width:820px;width:100%;text-align:center; }
+    .screen-3-badge { display:inline-block;background:rgba(245,166,35,.12);border:1px solid rgba(245,166,35,.4);color:var(--warn);font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:6px 18px;border-radius:20px;margin-bottom:16px; }
+    .screen-3-headline { font-size:clamp(2rem,5vw,3.2rem);font-weight:800;line-height:1.2;margin-bottom:12px;letter-spacing:-.02em; }
+    .screen-3-headline span { color:var(--warn); }
+    .screen-3-sub { font-size:1.15rem;color:var(--muted);line-height:1.8;max-width:640px;margin:0 auto 20px; }
+    .screen-3-sub em { color:var(--text);font-style:normal;font-weight:700; }
+    .screen-3-today-img { display:block;max-width:620px;width:95%;margin:0 auto;object-fit:contain;border-radius:16px; }
+
+    .nav-dots { position:fixed;bottom:18px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:100; }
+    .dot { width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.25);transition:background .2s; }
+    .dot.active { background:var(--accent); }
+  </style>
+</head>
+<body>
+  <section class="screen-3">
+    <div class="screen-3-inner">
+      <div class="screen-3-badge">⚠ The Problem Today</div>
+      <h2 class="screen-3-headline">Sprint planning is <span>manual</span><br>+ based on <span>intuition</span></h2>
+      <p class="screen-3-sub">Teams either overcommit or play it too safe<br>It's hard to combine backlog, availability, and<br>Historical performance <em>in real time</em></p>
+      <img src="images/today.png" alt="The Problem Today" class="screen-3-today-img" />
+    </div>
+  </section>
+
+  <div class="nav-dots">
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot active"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+
+  <script>
+    document.addEventListener('click', () => location.href = 'slide4.html');
+    document.addEventListener('contextmenu', e => { e.preventDefault(); location.href = 'slide2.html'; });
+  </script>
+</body>
+</html>
