@@ -39,7 +39,7 @@
 <body>
   <p class="slide-title">SprintSense — Live Demo</p>
   <div class="video-wrap">
-    <video controls autoplay loop id="vid">
+    <video controls autoplay id="vid">
       <source src="images/reg_small.mp4" type="video/mp4" />
     </video>
   </div>
@@ -55,7 +55,9 @@
   </div>
 
   <script>
-    // left click only navigates if not clicking the video controls
+    const vid = document.getElementById('vid');
+    vid.playbackRate = 2;
+    vid.addEventListener('ended', () => location.href = 'slide7.html');
     document.addEventListener('click', e => {
       if (e.target.closest('video')) return;
       location.href = 'slide7.html';

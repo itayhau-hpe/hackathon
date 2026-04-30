@@ -8,14 +8,21 @@
     :root { --green:#01a982;--darker:#091422;--card:#112236;--text:#e8f0f7;--muted:#7fa8c9;--accent:#00d4aa;--warn:#f5a623; }
     * { box-sizing:border-box;margin:0;padding:0; }
     body { font-family:'Segoe UI',system-ui,sans-serif;background:var(--darker);color:var(--text);min-height:100vh;cursor:pointer; }
-    @keyframes slideUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes fadeIn { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
 
     .screen {
       min-height:100vh;
       display:flex;align-items:center;justify-content:center;
       padding:48px 24px;
-      background:linear-gradient(160deg,#07101a 0%,#0b2535 50%,#0d1b2a 100%);
+      background:#000;transition:background 1s ease;
     }
+    .screen.revealed { background:linear-gradient(160deg,#07101a 0%,#0b2535 50%,#0d1b2a 100%); }
+
+    .video-wrap { width:90%;max-width:960px;border-radius:16px;overflow:hidden; }
+    .video-wrap video { width:100%;display:block;border-radius:16px; }
+
+    .main-content { display:none; }
+    .main-content.visible { display:block;animation:fadeIn .8s cubic-bezier(.22,1,.36,1) both; }
 
     .inner {
       max-width:900px;
@@ -80,12 +87,18 @@
   </style>
 </head>
 <body>
-  <section class="screen">
+  <section class="screen" id="screen7">
     <div class="inner">
-      <h2 class="page-headline">SprintSense <span>v2.0 - What's next?</span></h2>
-      <p class="page-sub">Planned improvements based on real-world sprint feedback</p>
-      <img src="images/next.png" style="max-width:860px;width:90%;margin-bottom:32px;" alt="v2.0 next steps">
-
+      <div class="video-wrap" id="videoWrap">
+        <video id="meetingVid" autoplay muted playsinline>
+          <source src="images/meeting.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="main-content" id="mainContent">
+        <h2 class="page-headline">SprintSense <span>v2.0 - What's next?</span></h2>
+        <p class="page-sub">Planned improvements based on real-world sprint feedback</p>
+        <img src="images/next.png" style="max-width:860px;width:90%;margin-bottom:32px;" alt="v2.0 next steps">
+      </div>
     </div>
   </section>
 
@@ -100,6 +113,12 @@
   </div>
 
   <script>
+    const vid = document.getElementById('meetingVid');
+    vid.addEventListener('ended', () => {
+      document.getElementById('videoWrap').style.display = 'none';
+      document.getElementById('screen7').classList.add('revealed');
+      document.getElementById('mainContent').classList.add('visible');
+    });
     document.addEventListener('click', e => e.preventDefault());
     document.addEventListener('contextmenu', e => { e.preventDefault(); location.href = 'slide6.html'; });
   </script>
