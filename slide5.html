@@ -11,9 +11,10 @@
     @keyframes arrowBlink { 0%,100%{opacity:.3} 50%{opacity:.9} }
 
     .screen-5 {
-      min-height:100vh;background:linear-gradient(160deg,#07101a 0%,#0a2030 55%,#0d1b2a 100%);
+      min-height:100vh;background:#000;transition:background 1s ease;
       display:flex;align-items:flex-start;justify-content:center;padding:24px 24px 40px;
     }
+    .screen-5.revealed { background:linear-gradient(160deg,#07101a 0%,#0a2030 55%,#0d1b2a 100%); }
     .screen-5-inner { max-width:960px;width:100%;text-align:center; }
     .screen-5-badge { display:inline-block;background:rgba(1,169,130,.12);border:1px solid rgba(1,169,130,.4);color:var(--accent);font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:6px 18px;border-radius:20px;margin-bottom:20px; }
     .screen-5-headline { font-size:clamp(2.2rem,5vw,3.8rem);font-weight:900;letter-spacing:-.03em;margin-bottom:52px;color:var(--text); }
@@ -80,6 +81,7 @@
     const vid = document.getElementById('archVid');
     vid.addEventListener('ended', () => {
       document.getElementById('videoWrap').style.display = 'none';
+      document.querySelector('.screen-5').classList.add('revealed');
       const content = document.getElementById('archContent');
       content.classList.add('visible');
     });
