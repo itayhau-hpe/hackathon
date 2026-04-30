@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SprintSense — Thank You</title>
+  <style>
+    :root { --green:#01a982;--darker:#091422;--card:#112236;--text:#e8f0f7;--muted:#7fa8c9;--accent:#00d4aa; }
+    * { box-sizing:border-box;margin:0;padding:0; }
+    body { font-family:'Segoe UI',system-ui,sans-serif;background:var(--darker);color:var(--text);min-height:100vh;cursor:pointer; }
+
+    @keyframes floatIn {
+      0%   { opacity:0; transform:translateY(60px) scale(.85); }
+      60%  { opacity:1; transform:translateY(-12px) scale(1.03); }
+      100% { opacity:1; transform:translateY(0) scale(1); }
+    }
+    @keyframes pulse {
+      0%,100% { text-shadow:0 0 24px rgba(0,212,170,.4); }
+      50%      { text-shadow:0 0 60px rgba(0,212,170,.9), 0 0 120px rgba(0,212,170,.3); }
+    }
+    @keyframes fadeUp {
+      from { opacity:0; transform:translateY(24px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+    @keyframes bounceX {
+      0%,100% { transform:translateX(0); }
+      25%     { transform:translateX(-6px); }
+      75%     { transform:translateX(6px); }
+    }
+
+    .screen {
+      min-height:100vh;
+      display:flex;flex-direction:column;align-items:center;justify-content:center;
+      background:linear-gradient(160deg,#07101a 0%,#0b2535 50%,#0d1b2a 100%);
+      text-align:center;padding:48px 24px;position:relative;overflow:hidden;
+    }
+    .screen::after {
+      content:'';position:absolute;inset:0;
+      background:radial-gradient(ellipse at 50% 50%,rgba(0,212,170,.08) 0%,transparent 65%);
+      pointer-events:none;
+    }
+
+    .logo {
+      height:120px;width:auto;object-fit:contain;
+      position:relative;z-index:1;
+    }
+
+    .thank-you {
+      font-size:clamp(4rem,12vw,9rem);font-weight:900;letter-spacing:-.03em;
+      color:var(--accent);
+      animation:floatIn 1s cubic-bezier(.22,1,.36,1) .3s both, pulse 3s ease-in-out 1.5s infinite;
+      position:relative;z-index:1;line-height:1;
+    }
+
+    .subtitle {
+      font-size:clamp(1.1rem,2.5vw,1.6rem);color:var(--muted);margin-top:24px;
+      animation:fadeUp .8s ease .9s both;
+      position:relative;z-index:1;
+    }
+
+    .team {
+      margin-top:48px;font-size:1rem;color:rgba(127,168,201,.6);
+      animation:fadeUp .8s ease 1.2s both;
+      position:relative;z-index:1;letter-spacing:.06em;text-transform:uppercase;
+    }
+
+    .back-hint {
+      position:absolute;bottom:28px;left:50%;transform:translateX(-50%);
+      color:rgba(127,168,201,.4);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;
+      animation:bounceX 2.5s ease-in-out 2s infinite;
+      z-index:1;
+    }
+
+    .nav-dots { position:fixed;bottom:18px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:100; }
+    .dot { width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.25);transition:background .2s; }
+    .dot.active { background:var(--accent); }
+  </style>
+</head>
+<body>
+  <section class="screen">
+    <div style="background:rgba(7,20,35,0.72);border:1px solid rgba(1,169,130,.25);border-radius:14px;backdrop-filter:blur(10px);padding:12px 24px;display:inline-block;margin-bottom:40px;animation:floatIn .9s cubic-bezier(.22,1,.36,1) .1s both;position:relative;z-index:1;">
+      <img src="images/logo_sprintsense4.png" alt="SprintSense" class="logo" style="margin-bottom:0;" />
+    </div>
+    <div class="thank-you">Thank You</div>
+    <p class="subtitle">SprintSense — AI-powered sprint planning assistant</p>
+    <p class="team">Built with ❤ for HPE Hackathon 2026</p>
+    <div class="back-hint">← right-click to go back</div>
+  </section>
+
+  <div class="nav-dots">
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot active"></div>
+  </div>
+
+  <script>
+    document.addEventListener('click', e => e.preventDefault());
+    document.addEventListener('contextmenu', e => { e.preventDefault(); location.href = 'slide7.html'; });
+  </script>
+</body>
+</html>

@@ -110,6 +110,7 @@
     <div class="dot"></div>
     <div class="dot"></div>
     <div class="dot active"></div>
+    <div class="dot"></div>
   </div>
 
   <script>
@@ -119,7 +120,7 @@
       document.getElementById('screen7').classList.add('revealed');
       document.getElementById('mainContent').classList.add('visible');
     });
-    document.addEventListener('click', e => e.preventDefault());
+    document.addEventListener('click', e => { e.preventDefault(); location.href = 'slide8.html'; });
     document.addEventListener('contextmenu', e => { e.preventDefault(); location.href = 'slide6.html'; });
   </script>
 </body>
