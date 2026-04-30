@@ -22,13 +22,14 @@
     .gain-card:hover { border-color:var(--accent);transform:translateY(-3px); }
     .gain-card img { width:100%;height:auto;object-fit:contain;border-radius:8px; }
 
-    .nav-dots { position:fixed;bottom:18px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:100; }
+    .our-goals { font-size:clamp(2rem,5vw,3.5rem);font-weight:900;letter-spacing:-.02em;color:#f5c842;margin-bottom:32px; };transform:translateX(-50%);display:flex;gap:8px;z-index:100; }
     .dot { width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.25);transition:background .2s; }
     .dot.active { background:var(--accent); }
   </style>
 </head>
 <body>
   <section class="screen-2">
+    <h2 class="our-goals">Our Goals</h2>
     <div class="gains-grid">
       <div class="gain-card"><img src="images/gain_1.png" alt="Gain 1" /></div>
       <div class="gain-card"><img src="images/gain_2.png" alt="Gain 2" /></div>

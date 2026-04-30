@@ -14,7 +14,7 @@
     @keyframes fadeInUp { from{opacity:0;transform:translateX(-50%) translateY(10px)} to{opacity:1;transform:translateX(-50%) translateY(0)} }
 
     .screen-1 {
-      min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;
+      min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
       background:url('images/agile.jpg') center center/cover no-repeat;
       text-align:center;padding:28px 24px 48px;position:relative;overflow:hidden;
     }
@@ -45,7 +45,9 @@
     <div class="hero-row">
       <div class="hero-left">
         <div class="screen-1-logo">
-          <img src="images/logo_sprintsense4.png" alt="SprintSense" />
+          <div class="screen-1-panel" style="padding:12px 24px;">
+            <img src="images/logo_sprintsense4.png" alt="SprintSense" />
+          </div>
         </div>
         <div class="hero-video">
           <video autoplay loop muted playsinline>
